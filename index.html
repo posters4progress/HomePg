@@ -18,45 +18,86 @@
             object-fit: fill;   /* THIS is the magic command that forces the dramatic stretch */
             display: block;
         }
+       
+        /* Font definitions loading from the 'Fonts' subfolder */
         @font-face {
-            /* font-family: Pick any nickname you want to use for this font in your CSS */
             font-family: 'Narcissus'; 
-            
-            /* src: Tells the browser the file name. Must match your actual file name in Visual Studio.
-               format(): Tells the browser what type of font file it is ('truetype' for .ttf, 'opentype' for .otf) */
-            src: url('Narcissus.otf') format('truetype'); 
-
-            font-weight: normal;
-            font-style: normal;
-            
-            font-family: 'OpenBody'; 
-            
-            /* src: Tells the browser the file name. Must match your actual file name in Visual Studio.
-               format(): Tells the browser what type of font file it is ('truetype' for .ttf, 'opentype' for .otf) */
-            src: url('OpenDyslexicAlta-Regular.otf') format('truetype'); 
-
+            src: url('Fonts/Narcissus.otf') format('opentype'); 
             font-weight: normal;
             font-style: normal;
         }
 
-        /* 2. APPLY THE FONT TO ELEMENTS */
+        @font-face {
+            font-family: 'OpenBody'; 
+            src: url('Fonts/OpenDyslexicAlta-Regular.otf') format('opentype'); 
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Default page font */
         body {
             margin: 0;
             padding: 0;
-            
-            /* 
-               font-family applies your font. 
-               'MyCustomFont' matches the nickname from @font-face above.
-               sans-serif is a fallback font in case the custom font fails to load.
-            */
             font-family: 'OpenBody', sans-serif; 
         }
 
-        /* You can also target specific tags like headings
-        h1 {  font-family: 'Narcissus', sans-serif;
-            font-size: 48px;
-            text-align: center;
-        } headings */
+       /* Standardized poster box that handles both portrait and landscape cards */
+        .poster-box {
+            border: 2px solid #F05626;         /* Orange border */
+            background-color: #ffffff;
+            padding: 12px;
+            width: 100%;
+            max-width: 340px;                  /* Ideal width for both orientations */
+            box-sizing: border-box;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .poster-preview-img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Add "landscape" to the img tag for 11x8.5 posters */
+        .poster-preview-img.landscape {
+            aspect-ratio: 11 / 8.5;
+        }
+
+        /* Add "portrait" to the img tag for 8.5x11 posters */
+        .poster-preview-img.portrait {
+            aspect-ratio: 8.5 / 11;
+        }
+
+        .poster-box-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            font-family: 'OpenBody', sans-serif;
+        }
+
+        /* Left Side Badges */
+        .badge-bw {
+            color: #ffffff;
+            font-weight: bold;
+            -webkit-text-stroke: 0.1px #000000;  /* Black outline on white text */
+            text-stroke: 1.2px #000000;
+            font-size: 15px;
+        }
+
+        .clr-c { color: #00BCD4; font-weight: bold; } /* Cyan */
+        .clr-l { color: #FFEB3B; font-weight: bold; -webkit-text-stroke: 0.05px #F8DA51; } /* Yellow */
+        .clr-r { color: #FF4081; font-weight: bold; } /* Pink */
+
+        /* Right Side Metadata */
+        .poster-meta-right {
+            color: #313556;                      /* Grey-blue text */
+            font-size: 13px;
+            font-weight: bold;
+        }
         </style>
     </head>
     <body bgcolor="#BFF0FF">
@@ -67,60 +108,91 @@
              <hr style="color:#313556;">
 
         <p>
-            <b>The what and the why:</b>I have found posters <B>in-real-life</B> to get engagement and follow up. They communicate that your neighbor cares enough about something to hang up a poster about it. Our <b>something</b> is <u>getting progressives out to vote</u>, and <u>spreading <b>true</b> information about Susan Collins and Troy Jackson</u> to allow our neighbors to make an informed choice!
+            <b>The what and the why:</b> I have found posters <B>in-real-life</B> to get engagement and follow up. They communicate that your neighbor cares enough about something to hang up a poster about it. Our <b>something</b> is <u>getting progressives out to vote</u>, and <u>spreading pointed information about Susan Collins and Troy Jackson</u> which allow our neighbors to make an thoughtful choice! These designs are just a start. New, more artful, options by more local artists will be added soon. Submit any ideas to Posters4Progress@Yahoo.com
             <br>
 
         </p>
         <hr style="color:#313556;">
          <br> 
         <h3 style="color:#313556;"> The Posters:</h3>
-    
-        <p>
-            Poster XX <br>
-            <img src="test.png" width="816" height="1056" alt="Blank Test Poster" >
-            <br>
-            Poster XX <br><br>
-            Poster XX <br><br>
-            Poster XX <br><br>
-            <a href="https://www.buzzfeed.com/kanksharaina/gloria-steinem-feminist-icon?origin=web-hf" target="_blank"> Poster XX <br><br> </a>
+    <!-- Poster Pilot Card -->
+        <div class="poster-box">
+            <div class="poster-title-top">Poster Pilot (11x8.5)</div>
 
-            <i>Interdum et malesuada fames ac ante ipsum primis in faucibus. 
-            Quisque vel mauris libero. <a href="https://www.buzzfeed.com/kanksharaina/gloria-steinem-feminist-icon?origin=web-hf" target="_blank">Cras tortor nunc, facilisis vel consequat quis, </a>
-            malesuada sed risus. In hac habitasse platea dictumst. Sed viverra vitae elit 
-            nec feugiat. Sed tincidunt ac diam a faucibus. In interdum odio a lacus 
-            hendrerit, at congue sapien venenatis. Donec interdum placerat ex. Sed sed 
-            egestas quam, ut rutrum diam.<b> Donec scelerisque maximus neque et euismod. 
-            Curabitur eget turpis libero. Donec ornare pharetra nisi. Curabitur quis 
-            tellus sed lorem placerat fringilla </b>in ac nulla. Nulla rutrum nulla urna, 
-            nec interdum erat pellentesque id. Etiam volutpat magna 
-            elit, ac posuere tellus porttitor non. 
-            Praesent viverra purus at dui ullamcorper, in commodo quam hendrerit.
-                </i>
+            <a href="files/Posters4ProgressPilot.pdf" target="_blank">
+                <!-- Added "landscape" class here -->
+                <img src="PosterIcons/2000%Richer.png" alt="Poster Pilot Preview" class="poster-preview-img landscape">
+            </a>
 
-        </p>
+            <div class="poster-box-footer">
+                <div>
+                    <span class="badge-bw">BW</span>&nbsp;&nbsp;&nbsp;<span class="clr-c">C</span><span class="clr-l">L</span><span class="clr-r">R</span>
+                </div>
+                <div class="poster-meta-right">
+                    10pg 11" x 8.5"
+                </div>
+            </div>
+        </div>
+<!-- Poster Pilot Card -->
+        <div class="poster-box">
+            <div class="poster-title-top">Poster Pilot (11x8.5)</div>
 
+            <a href="files/Posters4ProgressPilot.pdf" target="_blank">
+                <!-- Added "landscape" class here -->
+                <img src="PosterIcons/Trump4Suzie.png" alt="Poster Pilot Preview" class="poster-preview-img landscape">
+            </a>
+
+            <div class="poster-box-footer">
+                <div>
+                    <span class="badge-bw">BW</span>&nbsp;&nbsp;&nbsp;<span class="clr-c">C</span><span class="clr-l">L</span><span class="clr-r">R</span>
+                </div>
+                <div class="poster-meta-right">
+                    10pg 11" x 8.5"
+                </div>
+            </div>
+        </div>
+        <!-- Poster Pilot Card -->
+        <div class="poster-box">
+            <div class="poster-title-top">Poster Pilot (11x8.5)</div>
+
+            <a href="files/Posters4ProgressPilot.pdf" target="_blank">
+                <!-- Added "landscape" class here -->
+                <img src="PosterIcons/Suzie4Isreal.png" alt="Poster Pilot Preview" class="poster-preview-img landscape">
+            </a>
+
+            <div class="poster-box-footer">
+                <div>
+                    <span class="badge-bw">BW</span>&nbsp;&nbsp;&nbsp;<span class="clr-c">C</span><span class="clr-l">L</span><span class="clr-r">R</span>
+                </div>
+                <div class="poster-meta-right">
+                    10pg 11" x 8.5"
+                </div>
+            </div>
+        </div>
+        <!-- Poster Pilot Card -->
+        <div class="poster-box">
+            <div class="poster-title-top">Poster Pilot (11x8.5)</div>
+
+            <a href="files/Posters4ProgressPilot.pdf" target="_blank">
+                <!-- Added "landscape" class here -->
+                <img src="PosterIcons/Suzie4Billionares.png" alt="Poster Pilot Preview" class="poster-preview-img landscape">
+            </a>
+
+            <div class="poster-box-footer">
+                <div>
+                    <span class="badge-bw">BW</span>&nbsp;&nbsp;&nbsp;<span class="clr-c">C</span><span class="clr-l">L</span><span class="clr-r">R</span>
+                </div>
+                <div class="poster-meta-right">
+                    10pg 11" x 8.5"
+                </div>
+            </div>
+        </div>
        
-       
-        <ul>
-            <li>Mango</li>
-            
-            <li>Mangoo</li>
-            <li>Mangoo</li>
-            <li>Mangoo</li>
-        </ul>
 
-        <ol>
-            <li>Mango</li>
-            <li>Mangoo</li>
-            <li>Mangoo</li>
-            <li>Mangoo</li>
-        </ol>
     </body>
  
 
 </html>
-
-
 
 
 
